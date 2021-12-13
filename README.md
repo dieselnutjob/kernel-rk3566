@@ -5,28 +5,22 @@ https://forum.pine64.org/showthread.php?tid=14457
 
 These are the instructions on how to compile the kernel:-
 
-to build the kernel you need to download
-https://gitlab.com/sndwvs/images_build_kit/-/blob/arm/config/sources/rk3568.conf#L31
+Download a prepackaged compiler:-
 
-install patches
-https://gitlab.com/sndwvs/images_build_kit/-/tree/arm/patch/kernel/rk3568-legacy
+gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu.tar.xz
 
-(these two steps are already done in this repo)
+from 
 
-use kernel config 
-https://gitlab.com/sndwvs/images_build_kit/-/blob/arm/config/kernel/linux-rk3568-legacy.config
+https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads
 
-build kernel
+Unpack to your home folder
 
-https://gitlab.com/sndwvs/images_build_kit/-/blob/arm/compilation.sh#L131
+git clone https://github.com/dieselnutjob/kernel-rk3566.git
 
-export $CROSS=/gcc-arm-10.3-2021.07-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-
-make ARCH=aarch64 CROSS_COMPILE=$CROSS oldconfig
-make ARCH=aarch64 CROSS_COMPILE=$CROSS Image modules
-make ARCH=aarch64 CROSS_COMPILE=$CROSS dtbs
+cd kernel-rk3566
 
-install
+cp quartz64-a.config .config
 
-make O=$(pwd) ARCH=aarch64 CROSS_COMPILE=$CROSS INSTALL_MOD_PATH=..//kernel-modules modules_install
+make ARCH=arm64 CROSS_COMPILE=~/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu- Image modules
 
-make O=$(pwd) ARCH=aarch64 CROSS_COMPILE=$CROSS INSTALL_HDR_PATH=..//kernel-headers/usr headers_install
+find System.map and arch/arm64/boot/Image
