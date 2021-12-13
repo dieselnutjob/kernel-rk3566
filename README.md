@@ -24,3 +24,7 @@ cp quartz64-a.config .config
 make ARCH=arm64 CROSS_COMPILE=~/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu- Image modules
 
 find System.map and arch/arm64/boot/Image
+
+make ARCH=arm64 CROSS_COMPILE=~/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu- dtbs
+
+find arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dtb
