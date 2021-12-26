@@ -13,7 +13,7 @@ from
 
 https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads
 
-Unpack to the compiler to your home folder.
+Unpack the compiler to your home folder.
 
 Download this kernel source:-
 
